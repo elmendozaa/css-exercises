@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #2d6a4f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.game-container {
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  background: #f4a261;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: #e76f51;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  gap: 12px;
+  justify-content: center;
+}
+
+.hole {
+  width: 120px;
+  height: 120px;
+  background: #1b4332;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #081c15, inset 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.mole {
+  width: 80px;
+  height: 80px;
+  background: #a0522d;
+  border-radius: 50% 50% 40% 40%;
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.mole::before {
+  content: '';
+  width: 36px;
+  height: 20px;
+  background: #f4a261;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mole::after {
+  content: '👀';
+  font-size: 18px;
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hole.up .mole {
+  bottom: 10px;
+}
+
+.hole.whacked .mole {
+  background: #6b2d0f;
+  bottom: -80px;
+  transition: bottom 0.05s;
+}
+
+#game-over {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+}
+
+#game-over p {
+  margin-bottom: 1rem;
+}
+
+.hidden {
+  display: none;
+}
